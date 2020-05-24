@@ -13,12 +13,12 @@ model.add(Convolution2D(filters=32,
                    input_shape=(64, 64, 3)
                        ))
 
-model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(MaxPool2D(pool_size=(2, 2)))
 
 
 
-model.add(MaxPooling2D(pool_size=(2, 2)))
-
+model.add(MaxPool2D(pool_size=(2, 2)))
+import random
 
 def architecture(option):
     if option == 1:
@@ -46,16 +46,6 @@ def architecture(option):
                         activation='relu'
                        ))
         model.add(MaxPool2D(pool_size=random.choice(((2,2),(3,3),(4,4),(5,5),(6,6)))))
-    elif option == 4:
-        model.add(Convolution2D(filters=random.randint(30,60),
-                        kernel_size=random.choice(((2,2),(3,3),(4,4),(5,5),(6,6))),
-                        activation='relu'
-                       ))
-        model.add(Convolution2D(filters=random.randint(30,60),
-                        kernel_size=random.choice(((2,2),(3,3),(4,4),(5,5),(6,6))),
-                        activation='relu'
-                       ))
-        model.add(MaxPool2D(pool_size=random.choice(((2,2),(3,3),(4,4),(5,5),(6,6)))))
     
     else:
         model.add(Convolution2D(filters=random.randint(30,60),
@@ -71,7 +61,7 @@ def architecture(option):
         model.add(MaxPool2D(pool_size=random.choice(((2,2),(3,3),(4,4),(5,5),(6,6)))))
 
 
-architecture(random.randint(1,4))
+architecture(random.randint(1,3))
 
 model.add(Convolution2D(filters=random.randint(30,60),
                         kernel_size=random.choice(((2,2),(3,3),(4,4),(5,5),(6,6))),
@@ -90,13 +80,8 @@ def fullyconnected(option):
     elif option == 3:
         model.add(Dense(units=random.randint(80,200),activation=random.choice(('relu','sigmoid','softmax'))))
         model.add(Dense(units=random.randint(80,200),activation=random.choice(('relu','sigmoid','softmax'))))
-        model.add(Dense(units=random.randint(80,200),activation=random.choice(('relu','sigmoid','softmax'))))
-    elif option == 4:
-        model.add(Dense(units=random.randint(80,200),activation=random.choice(('relu','sigmoid','softmax'))))
-        model.add(Dense(units=random.randint(80,200),activation=random.choice(('relu','sigmoid','softmax'))))
-        model.add(Dense(units=random.randint(80,200),activation=random.choice(('relu','sigmoid','softmax'))))
-        model.add(Dense(units=random.randint(80,200),activation=random.choice(('relu','sigmoid','softmax'))))
-        
+        model.add(Dense(units=random.randint(80,200),activation=random.choice(('relu','sigmoid','softmax')))
+
     else:
         model.add(Dense(units=random.randint(80,200),activation=random.choice(('relu','sigmoid','softmax'))))
         model.add(Dense(units=random.randint(80,200),activation=random.choice(('relu','sigmoid','softmax'))))
@@ -106,7 +91,7 @@ def fullyconnected(option):
     
           
         
-fullyconnected(random.randint(1,5))
+fullyconnected(random.randint(1,4))
 
 model.add(Dense(units=random.randint(80,200),activation=random.choice(('relu','sigmoid','softmax'))))
 
