@@ -8,3 +8,11 @@ RUN pip3 install pillow
 RUN pip3 install tensorflow
 RUN pip3 install opencv-python
 RUN pip3 install matplotlib
+RUN pip3 install smtplib
+RUN mkdir /root/model
+VOLUME  /root/model/
+COPY covid_images_xray /root/model/covid_images_xray
+COPY model_trained.py /root/model/
+WORKDIR /root/model/
+CMD ["bin/bash"]
+CMD ["python3", "model_trained.py"]
