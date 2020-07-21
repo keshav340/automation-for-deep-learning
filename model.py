@@ -107,12 +107,12 @@ train_datagen = ImageDataGenerator(
         horizontal_flip=True)
 test_datagen = ImageDataGenerator(rescale=1./255)
 training_set = train_datagen.flow_from_directory(
-        'cnn_dataset/training_set/',
+        'covid_image_xray/training_set/',
         target_size=(64, 64),
         batch_size=32,
         class_mode='binary')
 test_set = test_datagen.flow_from_directory(
-        'cnn_dataset/test_set/',
+        'covid_images_xray/test_set/',
         target_size=(64, 64),
         batch_size=32,
         class_mode='binary')
@@ -124,9 +124,6 @@ model.fit(
         validation_steps=800)
         
 print(out.history['accuracy'][0])
-
-
-mod =str(model.layers)
 accuracy = str(out.history['accuracy'][0]
 
 
@@ -136,7 +133,6 @@ if out.history['accuracy'][0] >= .75:
     s.starttls()
     s.login("user@gmail.com", "password") 
     message1 = accuracy
-    message2 = mod
     s.sendmail("usernam@gmail.com", "receiver@gmail.com", message1)
     s.sendmail("user@gmail.com", "receiver@gmail.com", message2)
         
